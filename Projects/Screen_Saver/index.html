@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animations</title>
+	<style>
+		* {
+			margin:0;
+			padding:0;
+			border:0;
+		}
+		html {
+			background:#333;
+		}
+		div {
+			height:100px;
+			width:100px;
+			position:fixed;
+			border-radius:100%;
+			right:0;
+			bottom:0;
+		}
+		h1 {
+			line-height:50px;
+			font-size:50px;
+			font-family:sans-serif;
+			font-weight:bold;
+			color:#333;
+			-ms-transform: translate(0, 25px); /* IE 9 */
+			-webkit-transform: translate(0, 25px); /* Safari */
+			transform: translate(0, 25px);
+			text-align:center;
+		}
+	</style>
+	<script src="../../src/js/jquery.min.js"></script>
+	<script>
+		$(function() {
+			var w = window.innerWidth-100, h = window.innerHeight-100, x = 1, y = 1;
+			var movement = 4;
+			function animate() {
+				w = window.innerWidth-100;
+				h = window.innerHeight-100;
+				if(x<w) {
+					x += movement;
+					$("div.right").css('right',x);
+					$("div.left").css('left',x);
+				}
+				else {
+					$("div.right").addClass("r");
+					$("div.right").removeClass("right");
+					$("div.left").addClass("right");
+					$("div.left").removeClass("left");
+					$("div.r").addClass("left");
+					$("div.r").removeClass("r");
+					$("div.right").css("right",0);
+					$("div.right").css("left","");
+					x=0;
+					color();
+				}
+				if(y<h) {
+					y += movement;
+					$("div.top").css('top',y);
+					$("div.bottom").css('bottom',y);
+				}
+				else {
+					$("div.bottom").addClass("bot");
+					$("div.bottom").removeClass("bottom");
+					$("div.top").addClass("bottom");
+					$("div.top").removeClass("top");
+					
+					$("div.bot").addClass("top");
+					$("div.bot").removeClass("bot");
+					$("div.bottom").css("top","");
+					$("div.bottom").css("bottom",0);
+					y=0;
+					color();
+				}
+				setTimeout(animate,20);
+			}
+			function color() {
+				if($("div").css('background-color')=="rgb(255, 0, 0)"){
+					$("div").css('background-color',"orange");
+				}
+				else if($("div").css('background-color')=="rgb(255, 165, 0)"){
+					$("div").css('background-color',"yellow");
+				}
+				else if($("div").css('background-color')=="rgb(255, 255, 0)"){
+					$("div").css('background-color',"green");
+				}
+				else if($("div").css('background-color')=="rgb(0, 128, 0)"){
+					$("div").css('background-color',"blue");
+				}
+				else if($("div").css('background-color')=="rgb(0, 0, 255)"){
+					$("div").css('background-color',"indigo");
+				}
+				else if($("div").css('background-color')=="rgb(75, 0, 130)"){
+					$("div").css('background-color',"violet");
+				}
+				else if($("div").css('background-color')=="rgb(238, 130, 238)"){
+					$("div").css('background-color',"red");
+				}
+				else {
+					$("div").css('background-color',"red");
+				}
+			}
+			color()
+			animate();
+		});
+	</script>
+</head>
+<body>
+	<div class="right top"><h1>JT</h1></div>
+</body>
+</html>

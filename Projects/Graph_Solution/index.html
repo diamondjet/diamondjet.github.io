@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html ng-app style="background:#bbb">
+<head id="head">
+	<title>Graphing Solution</title>
+	<meta charset="utf-8">
+	
+	<!-- Style sheets -->
+	<link href="../../src/css/kendo.common.min.css" rel="stylesheet">
+	<link href="../../src/css/jquery-ui.css" rel="stylesheet">
+	
+	<!-- Tab Icon -->
+	<link href="../../src/ico/ico.ico" rel="icon">
+	
+	<!-- Javascript -->
+	<script src="../../src/js/jquery.min.js"></script>
+	<script src="../../src/js/angular.min.js"></script>
+	<script src="../../src/js/kendo.all.min.js"></script>
+	<script src="../../src/js/jquery-ui.min.js"></script>
+</head>
+
+<body>
+	<noscript>
+		<h1 style="margin-left:10px;margin-top:10px;margin-bottom:10000px;">Please enable javascript</h1>
+	</noscript>
+	<div class="accordian" style="margin:2px">
+		<h3 style="visibility:hidden;padding:0;height:0;border:0;margin:0;">Title Info</h3>
+		<div id="FirstTitlePane" style="border:0;margin:0;">
+			<h1>Graphing Solution</h1>
+			<h2>&emsp;Created by Jarrod Tyzack</h2>
+			<br>
+			<br>
+			<h4>See about tab for more information</h4>
+		</div>
+		<h3>Set page defaults</h3>
+		<div id="titleForm">
+			<input type="text" placeholder="Page Title" ng-model="title"><br><br>
+			<input type="text" placeholder="Your Name" ng-model="user"><br><br>
+			<label>Background color: </label><input type="color" ng-model="bgcolor"><br><br>
+			<label>Foreground color: </label><input type="color" ng-model="fgcolor">
+		</div>
+		<h3>Add graph</h3>
+		<div id="form">
+		<form id="input">
+		<div>
+		<input type="text" id="inTitle" placeholder="Graph Title"></div><br>
+		<div>
+		<input type="button" id="numOfPoints" onclick="dataPoints()" value="Choose amount of data points">
+		<input type="button" id="numOfVals" onclick="valPoints()" value="Choose amount of data values">
+		</div><br>
+		<div id="inData"></div>
+		<div id="type">Graph Type<br>
+		<input type="radio" name="inType" value="line" checked>Line<br>
+		<input type="radio" name="inType" value="bar">Bar<br>
+		<input type="radio" name="inType" value="column">Column<br>
+		<input type="radio" name="inType" value="pie">Pie<br>
+		</div>
+		<br>
+		<div id="submitBut"><input id="submit" type="submit" onclick="addGraph()" value="Add as graph"></div>
+		</form></div>
+		<h3>Add table</h3>
+		<div id="tableAdd">
+			<label>Number of columns:&nbsp;&nbsp;</label><input id="cols" type="number" min="1" max="500" value="1"/><br>
+			<label>Number of rows:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input id="rows" type="number" min="1" max="500" value="1"/><br>
+			<input type="button" onclick="tableSize()" value="Set Table Size"><br>
+			<br>
+			<div id="table"></div>
+			<input type="button" value="Add table" onclick="addTable()">
+		</div>
+		<h3>Remove item</h3>
+		<div id="removeGraph">
+			<input type="text" id="reGra" placeholder="Item name to remove"><br><br>
+			<input type="button" onclick="delGraph()" value="REMOVE (CAN NOT BE UNDONE)">
+		</div>
+		<h3>Preview document</h3>
+		<div id="preview" style="background:{{bgcolor}};color:{{fgcolor}}" hidden>
+			<div id="main">
+				<style>
+				main *, html {
+					background-color:{{bgcolor}};
+					color:{{fgcolor}}
+				}
+				#graph div {
+					float: left;
+					margin:10px;
+					padding:10px;
+					width:600px;
+				}
+				#footer {
+					clear:both;
+				}
+				</style>
+				<div>
+					<div id="title">
+						<h1 id="titleh1">{{title}}</h1>
+					</div>
+					<hr>
+					<div id="graph"></div>
+					<div id="footer">
+						<hr>
+						<h3>Created by: {{user}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using Graphing Solution by Jarrod Tyzack</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h3>Export to file</h3>
+		<div id="export">
+			<input type="text" id="exportName" placeholder="File Name"><br><br>
+			<input type="button" onclick="exportPage()" value="Export">
+		</div>
+		<h3>About</h3>
+		<div id="about">
+			<h1>Graphing Solution</h1>
+			<h2>&emsp;Created by Jarrod Tyzack</h2>
+			<br>
+			<h4>Graphing solution is a simple way to draw up multiple graphs and tables. It is designed to be easy to use, despite its large use. Graphing Solution utilises many different web technologies to achieve a simple and easy to use design.</h4>
+			<br><h5>Graphing solution was first made in June 2016 and the most recent update was the 1st of June 2016.</h5>
+			<h5>You are free to copy and distribute this product as you wish. Third party scripts use their own licenses.</h5>
+		</div>
+		<h3>Instructions</h3>
+		<div class="accordian">
+			<h3 style="visibility:hidden;padding:0;height:0;border:0;margin:0;background:">Instructions</h3>
+			<div style="border:0;padding-top:1.5em;padding-bottom:.5em">These instructions aim to provide a quick guide to using Graphing Solution</div>
+			<h3>Set page defaults</h3>
+			<div>
+				Set page defaults has four inputs:<br>
+				<b>Page title:</b> This sets the title for the outputted document.<br>
+				<b>Your name:</b> Added to the bottom of the outputted document so that you can claim the work as yours.<br>
+				<b>Background color:</b> This sets the background color of the outputted document. The default is white.<br>
+				<b>Foreground color:</b> This sets the text color of the outputted document. The default is black.
+			</div>
+			<h3>Add graph</h3>
+			<div>
+				Add graph is used to add a graph the options are:<br>
+				<b>Graph title:</b> This sets the title of the graph.<br>
+				<b>Choose amount of data points:</b> This sets the number of data points there are on the graph. A common use is dates or times.<br>
+				<b>Choose amount of data values:</b> This sets the number of data sets. For example comparing the sales of two products on the same axis.<br>
+				<b>Data entry table:</b> There are three types of cell in the data entry table, it is available only after both options above have been set<br>
+				<b>&emsp;Data value title:</b> This is used to enter the name of the data set that is being used.<br>
+				<b>&emsp;Data point:</b> This is used to set the axis label, eg Date or time<br>
+				<b>&emsp;Data value:</b> This is the value as a number of the data set at the data point<br>
+				<b>Graph type:</b> This chooses the type of graph, note that a pie graph takes only the right most column.<br>
+			</div>
+			<h3>Add table</h3>
+			<div>
+				Add table is used to add a table to the output, the possible options are:<br>
+				<b>Number of rows: </b><br>
+				<b>Number of columns: </b><br>
+				<b>Table: </b>The table appears for editing after you click set table size.<br>
+				<b>&emsp;Top row: </b>The top row of the table is the header and is used for the title<br>
+				<b>&emsp;Rest of the cells: </b>Simply fill in the rest of the cells with anything you want<br>
+			</div>
+			<h3>Remove item</h3>
+			<div>
+				Remove item removes an item from the document, the options are:<br>
+				<b>Item name: </b>The item name is either the graph title or the top row of a table.<br>
+			</div>
+			<h3>Preview document</h3>
+			<div>
+				Preview document shows you a version of the document.<br>
+			</div>
+			<h3>Export document</h3>
+			<div>
+				Export document saves the document in a html format. The options available are:<br>
+				<b>File name: </b>The file that the document will be saved to, note it will not overwrite previous files.<br>
+			</div>
+		</div>
+	</div>
+	<script>
+	var dataCount=0;
+	var pointCount=0;
+	var hold = "";
+	
+	$(function() {
+		var count = 0;
+		$( ".accordian" ).accordion({
+			active:0,
+			animate: {
+				easing: "easeOutBounce",
+				duration: 1500
+			},
+			collapsible: true,
+			disabled: false,
+			event: "click",
+			header: "> li > :first-child,> :not(li):even",
+			heightStyle: "content",
+			icons: {
+				header: "ui-icon-circle-plus",
+				activeHeader: "ui-icon-circle-minus"
+			}
+		});
+		
+		function clear() {
+			console.clear();
+			count ++;
+			if(count>60*60) {
+				console.info(Math.floor(count/(60*60))+" hour(s) and "+Math.floor((count/60)%60)+" minute(s) and "+Math.floor(count%60)+" second(s) on the site");
+			}
+			else {
+				console.info(Math.floor((count/60)%60)+" minute(s) and "+Math.floor(count%60)+" second(s) on the site");
+			}
+		}
+		window.setInterval(clear, 1000);
+	});
+	
+	function tableSize() {
+		var col=document.getElementById("cols").value;
+		var row=document.getElementById('rows').value;
+		hold = '<table><tr><td id="tableTitle" style="width:30px;height:30px;background:white;color:black;border:1px solid black;text-align:center" colspan="'+col+'" contenteditable="true"></td></tr>';
+		for(var i=0;i<row;i++) {
+			hold = hold+'<tr>';
+			for(var j=0;j<col;j++) {
+				hold = hold+'<td style="width:30px;height:30px;background:white;color:black;border:1px solid black;text-align:center" contenteditable="true"></td>';
+			}
+			hold = hold + '</tr>'
+		}
+		hold = hold+"</table>";
+		document.getElementById('table').innerHTML = hold;
+		hold="";
+	}
+	function addTable() {
+		if($("#tableTitle").html()) {
+			var title = $("#tableTitle").html().replace(/\s+/g, '').toLowerCase();
+			var data = $('#graph').html() + '<div style="width:auto" id="'+title+'">' + $('#table').html() + "</div>";
+			if(($("#"+title).html())) {
+				$("#"+title).html($('#table').html());
+				$("#"+title).css("width","auto");
+				$("#"+title).css("height","auto");
+			}
+			else {
+				//if doesn't exist
+				document.getElementById('graph').innerHTML = data;
+			}
+			$("#graph td").prop('contenteditable',false);
+		}
+		else {
+			alert("Please set table size and fill in header.");
+		}
+	}
+	function delGraph() {
+		var graphTitle = document.getElementById("reGra").value;
+		var graphID = graphTitle.replace(/\s+/g, '').toLowerCase();
+		if(document.getElementById(graphID)){
+			$("#graph #"+graphID).remove();
+			alert("Deleted: "+graphTitle);
+		}
+		else {
+			alert("Incorrect graph name");
+		}
+	}
+	function renderChart(data,xVals,title,type) {
+	function createChart() {
+			if(!($("#graph #"+title.replace(/\s+/g, '').toLowerCase()).html())){
+				document.getElementById('graph').insertAdjacentHTML('beforeend','<div id="'+title.replace(/\s+/g, '').toLowerCase()+'"></div>');
+			}
+			$("#"+title.replace(/\s+/g, '').toLowerCase()).kendoChart({
+				title: {
+					text: title
+				},
+				seriesDefaults: {
+					type: type,
+					missingValues: "gap",
+					stack: false
+				},
+				series: data,
+				categoryAxis: {
+					categories: xVals,
+					majorGridLines: {
+						visible: false
+					},
+					labels: {
+						rotation: "auto"
+					}
+				},
+				tooltip: {
+					visible: true,
+					template: "#= series.name #: #= value #"
+				},
+				theme: "silver"
+			});
+			document.getElementById(title.replace(/\s+/g, '').toLowerCase()).style.overflow = "visible";
+			document.getElementById(title.replace(/\s+/g, '').toLowerCase()).style.height = "400px";
+			document.getElementById(title.replace(/\s+/g, '').toLowerCase()).style.width = "600px";
+			$("svg").css("overflow","visible");
+			$("svg").css("height","410px");
+		}
+		createChart();
+		$(document).bind("kendo:skinChange", createChart);
+	}
+	function dataPoints() {
+		var x = prompt("How many data points do you need?", "3");
+		dataCount=x;
+		dataGraph();
+	}
+	function valPoints() {
+		var x = prompt("How many data values do you need?", "1");
+		pointCount = x;
+		dataGraph();
+	}
+	function dataGraph() {
+		if(dataCount>0&&pointCount>0) {
+			document.getElementById('inData').innerHTML = "";
+			hold = document.getElementById('inData').innerHTML;
+			document.getElementById('inData').innerHTML = hold + '<br><input type="text" disabled>';
+			for(var h = 0;h<pointCount;h++) {
+				hold = document.getElementById('inData').innerHTML;
+				document.getElementById('inData').innerHTML = hold + '<input type="text" id="inValuesTitle'+h+'" placeholder="Data Values Title" style="background-color:#ddd">';
+			}
+			hold = document.getElementById('inData').innerHTML;
+			document.getElementById('inData').innerHTML = hold + '<br>';
+			for(var i =0;i<dataCount;i++) {
+				hold = document.getElementById('inData').innerHTML;
+				document.getElementById('inData').innerHTML = hold + '<input type="text" id="inPoints'+i+'" placeholder="Data Point">';
+				for(var j = 0;j<pointCount;j++) {
+					hold = document.getElementById('inData').innerHTML;
+					document.getElementById('inData').innerHTML = hold + '<input type="text" id="inValues'+i+","+j+'" placeholder="Data Value">';
+				}
+				hold = document.getElementById('inData').innerHTML;
+				document.getElementById('inData').innerHTML = hold + '<br>';
+			}
+			hold = document.getElementById('inData').innerHTML;
+			document.getElementById('inData').innerHTML = hold + '<br>';
+			hold = "";
+		}
+	}
+	function addGraph() {
+		var xVals=new Array();
+		var yVals=[];
+		if( document.getElementById("inTitle").value[0] && dataCount && pointCount) {
+			var title=document.getElementById("inTitle").value;
+			var graphType="line";
+			var inType=document.forms[0];
+			for (i = 0; i < inType.length; i++) {
+				if (inType[i].checked) {
+					graphType = inType[i].value;
+				}
+			}
+			for (i=0;i<dataCount;i++) {
+				xVals.push(document.getElementById("inPoints"+i).value);
+			}
+			for (j=0;j<pointCount;j++) {
+				var obj = {
+					name:"THIS",
+					data: []
+				};
+				for (k=0;k<dataCount;k++) {
+					obj.data.push(parseInt(document.getElementById("inValues"+k+","+j).value));
+					obj.name = document.getElementById("inValuesTitle"+j).value;
+				}
+				yVals.push(obj);
+			}
+			renderChart(
+			yVals,
+			xVals,
+			title,
+			graphType
+			);
+		}
+		else {
+			alert("Please fill in all fields");
+		}
+	}
+	function exportPage() {
+		var body = '<body><div id="main">'+document.getElementById("main").innerHTML+'</div></body>';
+		var head = '<head><title>'+ document.getElementById('titleh1').innerHTML+ "</title><script  src=\"http://www.jarrodtyzack.com/kendo.all.min.js\"> <\/script><\/head>" ;
+		if(document.getElementById('exportName').value[0]){
+			var full = '<!DOCTYPE html><html>'+head+body+'</html>';
+			var a = document.createElement("a");
+			var file = new Blob([full], {type: 'text/html'});
+			a.href = URL.createObjectURL(file);
+			a.download = document.getElementById('exportName').value;
+			a.click();
+		}
+		else {
+			alert("Please enter a file name");
+		}
+	}
+	</script>
+</body>
+</html>

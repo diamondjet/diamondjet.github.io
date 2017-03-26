@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Problem Solving Methodology</title>
+        <meta charset="utf-8">
+
+        <!-- Style sheets -->
+        <link href="http://www.jarrodtyzack.com/src/css/jquery-ui-plain.css" rel="stylesheet">
+
+        <!-- Tab Icon -->
+        <link href="http://www.jarrodtyzack.com/src/ico/ico.ico" rel="icon">
+
+        <!-- Javascript -->
+        <script src="http://www.jarrodtyzack.com/src/js/jquery.min.js"></script>
+        <script src="http://www.jarrodtyzack.com/src/js/jquery-ui.min.js"></script>
+        
+        <!-- Style -->
+        <style>
+            * {font-family: Verdana,Arial,sans-serif;}
+            header h1 {text-align: center}
+            .accordian>article {margin-left:10px; margin-right: 10px;}
+            .accordian>h3>span {margin-right: 10px;}
+            .accordian article h4 {margin-top:0px;}
+            .accordian article p {margin-bottom:0px;}
+            h5 {font-size: 1.2em;padding-left: 10%;padding-right: 10%;}
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Problem Solving Methodology</h1>
+        </header>
+        <section>
+            <h5>The problem solving methodology is used to solve problems. It uses four stages: analysis, design, development and evaluation in order to provide a way to solve problems.</h5>
+            <div class="accordian">
+                <h3>Analysis</h3>
+                <article>
+                    <h4>The analysis stage is the stage in which you determine what problems exist</h4>
+                    <p>
+                        <b>1: Solution Requirements</b><br />
+                        The solution requirements are used to determine what the solution needs to provide. These are generally broken into functional and non-functional requirements.<br /><br />
+                        <b>2: Solution Constraints</b><br />
+                        The solution constraints are things that need to be taken into account; such as cost, time, legal and technical constraints. They are things which may limit the design capabilities.<br /><br />
+                        <b>3: Scope Of Solution</b><br />
+                        The scope of the solution refers to what the solution will include. This stage outlines what features will be included and things which won't be in the final product.
+                    </p>
+                </article>
+                <h3>Design</h3>
+                <article>
+                    <h4>The design stage is when you outline how the product will be completed.</h4>
+                    <p>
+                        <b>1: Solution Design</b><br />
+                        The solution design is the stage in which you create diagrams, flowcharts, site maps and other visual design tools to show how the project will work.
+                        <br /><br />
+                        <b>2: Evaluation Criteria</b><br />
+                        For the evaluation criteria you choose a series of questions that you are able to use to evaluate your project once it is completed to see if you are meeting design requirements.
+                    </p>
+                </article>
+                <h3>Development</h3>
+                <article>
+                    <h4>The development stage is where you create your project based upon the design specifications you have created in previous stages.</h4>
+                    <p>
+                        <b>1: Manipulation (Coding)</b><br />
+                        The manipulation stage is when you build the solution using electronic devices.<br /><br />
+                        <b>2: Validation</b><br />
+                        Validation is when you check the solution to make sure that the solution does what is required of it.<br /><br />
+                        <b>3: Testing</b><br />
+                        The testing stage is when you test the solution to make sure that when data is inputted into it the solution produces the required result. This stage can in some cases be automated so that any changes to the code can be instantly tested.<br /><br />
+                        <b>4: Documentation</b><br />
+                        In the documentation stage you write documentation for both internal and external use. This will assist both users and future coders using your solution.
+                    </p>
+                </article>
+                <h3>Evaluation</h3>
+                <article>
+                    <h4>The evaluation stage is used to determine how effective the solution is.</h4>
+                    <p>
+                        <b>1: Strategy</b><br />
+                        The strategy stage is used to figure out how the solution will be judged.<br /><br />
+                        <b>2: Report</b><br />
+                        The report is used to determine how well the solution meets the needs of the user.
+                    </p>
+                </article>
+            </div>
+        </section>
+        <script>
+            $(function() {
+                $( ".accordian" ).accordion({
+                    heightStyle: "content",
+                    icons: {
+                        header: "ui-icon-circle-plus",
+                        activeHeader: "ui-icon-circle-minus"
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
