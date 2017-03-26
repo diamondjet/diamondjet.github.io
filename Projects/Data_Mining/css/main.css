@@ -1,0 +1,225 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: SScript;
+  src: url("../fonts/script.ttf"); }
+* {
+  color: black; }
+
+body {
+  background-color: white; }
+
+strong {
+  color: white;
+  font-size: 0px; }
+
+#wrapper {
+  width: 100%;
+  margin: 0 auto; }
+
+section {
+  border: collapse; }
+
+a i {
+  color: black; }
+
+header #navbarTop {
+  background-color: goldenrod;
+  height: 7.5%; }
+  header #navbarTop ul {
+    width: 100%; }
+    header #navbarTop ul li {
+      display: inline-block; }
+    header #navbarTop ul #navbarTopLi1 {
+      margin-left: 1%;
+      width: 32%; }
+      header #navbarTop ul #navbarTopLi1 a:hover i {
+        color: Chartreuse; }
+      header #navbarTop ul #navbarTopLi1 a:active i {
+        color: Chartreuse; }
+header #navbarBottom {
+  background-color: goldenrod;
+  position: absolute;
+  z-index: 12;
+  min-width: 100%;
+  opacity: 0.9;
+  text-align: center; }
+  header #navbarBottom .navbarBottomNav {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 2vw;
+    color: white;
+    list-style: none; }
+    header #navbarBottom .navbarBottomNav #navbarLastWrap li {
+      display: inline-block; }
+    header #navbarBottom .navbarBottomNav .navbarLinkLi {
+      text-decoration: none;
+      list-style: none;
+      padding: 2% 0 2% 0;
+      text-transform: uppercase; }
+    header #navbarBottom .navbarBottomNav .navbarLinkLi a {
+      text-decoration: none;
+      color: white; }
+    header #navbarBottom .navbarBottomNav .navbarLinkLi a:hover {
+      color: Chartreuse; }
+    header #navbarBottom .navbarBottomNav .navbarLinkLi a:active {
+      text-decoration: none;
+      color: Chartreuse; }
+  header #navbarBottom .navReferences {
+    padding-top: 2%; }
+  header #navbarBottom .navAuthors {
+    padding-top: 2%;
+    padding-bottom: 1.3%; }
+  header #navbarBottom #navLogo {
+    margin: 0 auto; }
+    header #navbarBottom #navLogo img {
+      opacity: 1; }
+
+#contentWrapper #leftside {
+  width: 30%;
+  float: left; }
+#contentWrapper #rightside {
+  width: 70%;
+  overflow: hidden; }
+#contentWrapper #topLeft {
+  background-color: #FF680A;
+  width: auto;
+  height: 30%;
+  position: relative; }
+  #contentWrapper #topLeft #topLeftShown {
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    z-index: 10; }
+    #contentWrapper #topLeft #topLeftShown h2 {
+      height: inherit;
+      width: inherit;
+      margin: 0 auto;
+      font-size: 4vw;
+      font-family: SScript; }
+  #contentWrapper #topLeft #topLeftHidden {
+    height: 30%;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 0; }
+    #contentWrapper #topLeft #topLeftHidden h2 {
+      font-size: 4vw; }
+#contentWrapper #midLeft {
+  background-image: url("../img/stakeholder.png");
+  background-size: contain;
+  background-size: cover;
+  width: auto;
+  height: 70%; }
+#contentWrapper #mainMid {
+  width: 100%;
+  height: 80%;
+  float: right; }
+  #contentWrapper #mainMid h1 {
+    font-size: 5vw;
+    font-family: SScript; }
+  #contentWrapper #mainMid p {
+    font-size: 2vw; }
+  #contentWrapper #mainMid #slideshow {
+    width: 100%;
+    height: 100%;
+    background-color: antiquewhite;
+    float: inherit; }
+  #contentWrapper #mainMid #slideshow img {
+    width: auto;
+    min-width: 70%;
+    max-width: 70% !important;
+    height: auto;
+    min-height: 80% !important;
+    max-height: 80% !important;
+    position: absolute;
+    z-index: 8;
+    object-fit: fill; }
+  #contentWrapper #mainMid #slideshow img.active {
+    z-index: 10; }
+  #contentWrapper #mainMid #slideshow img.last-active {
+    z-index: 9; }
+#contentWrapper #bottomMid {
+  background-color: #27aca1;
+  width: 60%;
+  height: 20%;
+  float: left;
+  font-size: 1vw; }
+#contentWrapper #bottomMidB {
+  width: 100%;
+  background-color: #27aca1;
+  height: 20%;
+  clear: both;
+  font-size: 1vw;
+  padding-left: 10px;
+  padding-right: 10px; }
+#contentWrapper #bottomRight {
+  background-color: white;
+  width: 40%;
+  height: 20%;
+  float: right;
+  font-size: 1vw; }
+#contentWrapper h2 {
+  height: inherit;
+  width: inherit;
+  margin: 0 auto;
+  font-size: 2vw;
+  font-family: SScript;
+  text-decoration: none; }
+  #contentWrapper h2 a:hover {
+    color: Chartreuse;
+    text-decoration: none; }
+
+footer {
+  clear: both;
+  background-color: white;
+  text-align: center; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,296 @@
+// imports
+@import '_reset';
+
+@font-face {
+    font-family: SScript;
+    src: url('../fonts/script.ttf')
+}
+
+//defining variables
+
+//colors
+$info-color-one: #FF680A; // top left info box orangish
+$info-color-two: #27aca1; // middle left info box greenish /aqua
+$info-color-three: white; // bottom middle info box
+$info-color-four: grey; // bottom right info box
+$pane-color: goldenrod; // top and bottom bars
+$menu-color: #EFCC00; //menu color light goldenrod
+$text-color: black; //text color
+$bg-color: white; //#505050; dark greyish blackish
+
+//code
+
+* {
+    color: $text-color;
+}
+
+body {
+    background-color: $bg-color;
+        
+}
+strong {
+    color: $bg-color;
+    font-size: 0px;
+}
+    
+
+#wrapper {
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+section {
+
+    border: collapse;
+}
+a i {
+    color: $text-color;
+}
+header{
+
+    
+    #navbarTop{
+        background-color: $pane-color;
+        height: 7.5%;
+        
+        ul {
+            width: 100%;
+            li {
+                display: inline-block;
+            }
+            #navbarTopLi1 {
+                a:hover {
+                    i {
+                        color:Chartreuse;
+                    }
+                }
+                a:active {
+                    i {
+                        color:Chartreuse;
+                    }
+                }
+                margin-left: 1%;
+                width: 32%;
+            }
+        }
+    }
+    
+    
+    #navbarBottom {
+        background-color: $pane-color;
+        position: absolute;
+        z-index: 12;
+        min-width: 100%;
+        opacity: 0.9;
+        text-align: center;
+        
+        
+        .navbarBottomNav {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 2vw;
+            color: $bg-color;
+            list-style: none;
+            
+            
+            #navbarLastWrap li {
+                display: inline-block;
+            }
+            
+            .navbarLinkLi {
+                text-decoration: none;
+                list-style: none;
+                padding: 2% 0 2% 0;
+                text-transform: uppercase;
+                
+
+            }
+            
+            .navbarLinkLi a {
+                text-decoration: none;
+                color: $bg-color;
+            }
+            .navbarLinkLi a:hover {
+                color: Chartreuse;
+            }
+            .navbarLinkLi a:active {
+                text-decoration: none;
+                color: Chartreuse;
+            }
+            
+        }
+        
+        .navReferences {
+            padding-top: 2%;
+        }
+        
+        .navAuthors {
+            padding-top: 2%;
+            padding-bottom: 1.3%;
+        }
+        
+        #navLogo {
+            
+            margin: 0 auto;
+            
+            img {
+                opacity: 1;
+            }
+        
+        } 
+    }
+        
+}
+
+#contentWrapper {
+    #leftside {
+        width: 30%;
+        float: left;
+    }
+    
+    #rightside {
+        width: 70%;
+        overflow: hidden;
+    }
+    
+    #topLeft {
+        background-color: $info-color-one;
+        width: auto;
+        height: 30%;
+        position: relative;
+        
+        #topLeftShown {
+            
+            height: inherit;
+            width: inherit;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            
+            h2 {
+                height: inherit;
+                width: inherit;
+                margin: 0 auto;
+                font-size: 4vw;
+                font-family: SScript;
+            }
+            
+            span {
+                
+            }
+        }
+        
+        #topLeftHidden {
+            height: 30%;
+            width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            h2 {
+                font-size: 4vw;
+            }
+
+        }
+    }
+    
+    #midLeft {
+        background-image: url("../img/stakeholder.png");
+        background-size: contain;
+        background-size: cover;
+        //background-color: $menu-color;
+        width: auto;
+        height: 70%;
+ 
+    }
+    
+    #mainMid {
+        width: 100%;
+        height: 80%;
+        float: right;
+        h1 {
+            font-size: 5vw;
+            font-family: SScript;
+        }
+        p {
+            font-size: 2vw;
+        }
+        #slideshow {
+            width: 100%;
+            height: 100%;
+            background-color: antiquewhite;
+            float: inherit;
+        }
+
+        #slideshow img {
+            width: auto;
+            min-width: 70%;
+            max-width: 70% !important;
+            height: auto;
+            min-height: 80% !important;
+            max-height: 80% !important;
+            position: absolute;
+            z-index:8;
+            object-fit: fill;
+        }
+        
+        #slideshow img.active {
+            z-index: 10;
+        }
+        
+        #slideshow img.last-active {
+            z-index: 9;
+        }
+    }
+    
+    #bottomMid {
+        background-color: $info-color-two;
+        width: 60%;
+        height: 20%;
+        float: left;
+        font-size: 1vw;
+    }
+    #bottomMidB {
+        width: 100%;
+        background-color: $info-color-two;
+        height: 20%;
+        clear: both;
+        font-size: 1vw;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    #bottomRight {
+        background-color: $bg-color;
+        width: 40%;
+        height: 20%;
+        float: right;
+        font-size: 1vw;
+    }
+    
+                h2 {
+                                height: inherit;
+                width: inherit;
+                margin: 0 auto;
+                font-size: 2vw;
+                font-family: SScript;
+                text-decoration: none;
+                
+                a:hover {
+                    color: Chartreuse;
+                    text-decoration: none;
+                }
+                
+            }
+            
+}
+
+
+
+footer {
+    clear: both;
+    background-color: $bg-color;
+    text-align: center;
+}

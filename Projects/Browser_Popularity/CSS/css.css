@@ -1,0 +1,44 @@
+* {
+    
+}
+
+html, body {
+    font-family: Verdana;
+    text-align: center;
+    color: black;
+    background-color: goldenrod;
+}
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 1.8em;
+}
+body {
+    height: 99%;
+}
+
+html {
+    height: 90%;
+}
+#container, #center-container, #infovis {
+    margin: auto;
+    width: 98%;
+    overflow: hidden;
+    height: 100%;
+}
+#container {
+    height: 10%;
+}
+li {
+    display: inline;
+    font-size: 1.4em;
+}
+#left {
+    float: left;
+    margin-left: 0px;
+}
+#right {
+    float: right;
+    margin-right: 3%;
+}
