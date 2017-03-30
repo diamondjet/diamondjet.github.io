@@ -12,6 +12,7 @@ hr {
     margin-bottom: 10px;
 }
 html {
+    padding-bottom: 20px;
     background: #ddd;
     header {
         h1 {
@@ -20,6 +21,9 @@ html {
     }
     section {
         float: left;
+        div {
+            font-weight: bold;
+        }
         article, div {
             ul {
                 list-style: none;
@@ -30,10 +34,24 @@ html {
                     display: inline-block;
                     border: 3px solid black;
                     padding: 1vw;
+                    padding-left: 3px;
+                    padding-right: 3px;
                     width: 13vw;
                     margin-right: -0px;
                 }
             }
+        }
+        article ul li:nth-child(5):hover {
+            background: #aa0000;
+        }
+        article ul li:nth-child(5):active {
+            background: #ff0000;
+        }
+        article ul li:nth-child(4):hover {
+            background: #777;
+        }
+        article ul li:nth-child(4):active {
+            background: #aaa;
         }
         article:nth-child(even) {
             ul {
@@ -46,7 +64,7 @@ html {
     aside {
         float: right;
         clear: none;
-        width: 25vw;
+        width: 20vw;
         margin-right: 1vw;
         div:hover {
             background: #aaa;
@@ -55,12 +73,32 @@ html {
         div:active {
             background: #777;
         }
+
         div {
             border: 2px solid black;
             margin-bottom: 5px;
             padding: 3px;
             background: #ddd;
             h2 {
+                text-align: center;
+                font-size: 15px;
+            }
+        }
+        form {
+            border: 2px solid black;
+            padding: 3px;
+            text-align: center;
+            h2:hover {
+                background: #aaa;
+                cursor:pointer;
+            }
+            h2:active {
+                background: #777;
+            }
+            h2 {
+                border: 2px solid black;
+                padding: 3px;
+                background: #ddd;
                 text-align: center;
                 font-size: 15px;
             }
@@ -78,6 +116,14 @@ html {
                 border: 1px solid black;
                 background: #eee;
             }
+        }
+    }
+    footer {
+        clear: both;
+        margin-left: 5vw;
+        margin-top: 5px;
+        h2 {
+            font-size: 20px;
         }
     }
 }
