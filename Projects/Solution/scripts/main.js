@@ -5,3 +5,4 @@ $(document).ready(function() {
         $("#top h2").html(e.currentTarget.innerText.toUpperCase()); //change subheading
     });
 });
+var score = 0;
