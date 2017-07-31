@@ -8,7 +8,17 @@ $(document).ready(function() {
         $("#top h2").html(e.currentTarget.innerText.toUpperCase()); //change subheading
     });
     $('#BLogin').click(function() {
-        name = $("#SName").val().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
-        $('.login').html("<h4>Username: <span>"+name+"</span></h4>")
+        name = $("#SName").val().replace(/[^\w\s]/gi, '');
+        if(name.length > 0) {
+            $('.login').html("<h4>Username: <span>"+name+"</span></h4>");
+        }
+        else {
+            $('#SName').attr('placeholder','Try Again');
+            $('#SName').val('');
+            $('#SName').css('background','#ca0020');
+            setTimeout(function() {
+                $('#SName').css('background','#f7f7f7');
+            }, 300);
+        }
     });
 });

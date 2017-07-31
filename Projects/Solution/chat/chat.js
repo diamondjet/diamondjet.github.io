@@ -96,6 +96,6 @@ $(document).ready(function() {
       });
 });
 function submitChat() {
-    chat.send($("#chatInput").val(), name);
+    chat.send($("#chatInput").val().replace(/[^\w\s]/gi, ''), name.replace(/[^\w\s]/gi, ''));
     $("#chatInput").val("");
 }
