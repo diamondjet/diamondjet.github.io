@@ -37,7 +37,7 @@ $(document).ready(function() {
     qu.get();
     var go = true;
     $('.answer').mouseenter(function(e) {
-        go ? $(e.currentTarget).css('background','orange') : false;
+        go ? $(e.currentTarget).css('background','#0571b0') : false;
     });
     $('.answer').mouseleave(function(e) {
         go ? $(e.currentTarget).css('background','inherit') : false;
@@ -46,10 +46,10 @@ $(document).ready(function() {
         go = false;
         $('.answer').css('background','inherit');
         if (e.currentTarget.innerText == qu.correct) {
-            $(e.currentTarget).css('background','green')
+            $(e.currentTarget).css('background','#3cdf00')
             score+=1
         } else {
-            $(e.currentTarget).css('background','red')
+            $(e.currentTarget).css('background','#ca0020')
         }
         setTimeout(function () {
             qu.get();

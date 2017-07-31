@@ -18,6 +18,16 @@
                     Study Design
                 </li></a>
             </ul>
+            <ol>
+                <li class='login'>
+                    <input type="text" placeholder="Username" id='SName' />
+                    <input type="button" value="Go" id='BLogin' />
+                </li>
+                <li class="score">
+                    Score: <span id='score'></span><br / />
+                    Percentage: <span id='percentage'></span>
+                </li>
+            </ol>
         </div>
         <div id='top'>
             <h1>IT PERFECT</h1>
@@ -45,11 +55,6 @@
                 <embed src="pdf/Computing_Study_Design.pdf" type='application/pdf'>
             </section>
             <section id="s">
-                <div id='userScore'>
-                    <p>
-                        Login to keep track of your score
-                    </p>
-                </div>
                 <div id='topScore'>
                     <ol>
                         <li>1. <span></span></li>

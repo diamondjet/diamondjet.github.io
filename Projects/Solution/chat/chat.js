@@ -84,68 +84,18 @@ function sendChat(message, nickname)
 
 
 //html stuff
-var name = 'guest';
-var maxLength = 2000;
 var chat =  new Chat();
 $(document).ready(function() {
 	 chat.getState();
      setInterval(chat.update, 5000);
-	 $("#chatSubmit").click(function(e) {
-			var text = $("#chatInput").val();
-            var length = text.length;
-
-            if (length <= maxLength + 1) {
-
-		        chat.send(text, name);
-		        $("#chatInput").val("");
-
-            } else {
-
-				$("#chatInput").val(text.substring(0, maxLength));
-                chat.send(text, name);
-		        $("#chatInput").val("");
-			}
-	 });
-	 // watch textarea for key presses
-     $("#chatInput").keydown(function(event) {
-
-         var key = event.which;
-
-         //all keys including return.
-         if (key >= 33) {
-
-             var length = this.value.length;
-
-             // don't allow new content if length is maxed out
-             if (length >= maxLength) {
-                 event.preventDefault();
-             }
-          }
-	 																																																});
-	 // watch textarea for release of key press
-	 $('#chatInput').keyup(function(e) {
-
+	 $("#chatSubmit").click(submitChat);
+     $('#chatInput').keyup(function(e) {
 		  if (e.keyCode == 13) {
-
-            var text = $('#chatInput').val();
-            var length = text.length;
-
-            // send
-            if (length <= maxLength + 1) {
-
-		        chat.send(text, name);
-		        $(this).val("");
-
-            } else {
-
-				$(this).val(text.substring(0, maxLength));
-				chat.send(text, name);
-		        $(this).val("");
-
-			}
-
-
-		  }
-     });
-
+              submitChat();
+          }
+      });
 });
+function submitChat() {
+    chat.send($("#chatInput").val(), name);
+    $("#chatInput").val("");
+}

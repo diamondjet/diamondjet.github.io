@@ -1,12 +1,18 @@
 @import 'reset';
-
+//colours from http://colorbrewer2.org/#type=diverging&scheme=RdBu&n=5
+$color1: #ca0020;
+$color2: #f4a582;
+$color3: #92c5de;
+$color4: #0571b0;
+$white: #f7f7f7;
+$black: #080808;
 * {
     margin: 0;
     padding: 0;
-    color: #000;
+    color: $black;
 }
 #left {
-    background: red;
+    background: $color4;
     position: absolute;
     width: 20vw;
     height: 100vh;
@@ -16,7 +22,7 @@
         a {
             text-decoration: none;
             li {
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid $black;
                 text-align: right;
                 font-size: 2em;
                 margin-bottom: 1vw;
@@ -24,9 +30,32 @@
         }
 
     }
+    ol {
+        .login {
+            input {
+                font-size: 1.5vw;
+                border: none;
+                margin: 0px;
+            }
+            input[type=text] {
+                width: 15vw;
+                //margin-left: 0.5vw;
+            }
+            input[type=button] {
+                width: 3vw;
+                margin-left: 0.4vw;
+            }
+        }
+        li {
+            margin-left: 0.5vw;
+            font-size: 2vw;
+        }
+    }
+
+
 }
 #top {
-    background: blue;
+    background: $color3;
     position: absolute;
     width: 50vw;
     height: 30vh;
@@ -42,7 +71,7 @@
 
 }
 #bottom {
-    background: yellow;
+    background: $color3;
     position: absolute;
     width:50vw;
     height:70vh;
@@ -62,7 +91,7 @@
                 background: red;
             }
             .answer:active {
-                background: black;
+                background: $black;
             }
             .answer {
                 display: table; //for vertical text align
@@ -74,7 +103,7 @@
                     font-size: 1.3em;
                 }
 
-                border: 1px solid black;
+                border: 1px solid $black;
                 width: 20vw;
                 height: 20vh;
                 float: left;
@@ -103,23 +132,20 @@
         div {
             width: 40vw;
             margin-left: 5vw;
-            border: 1px solid black;
+            border: 1px solid $black;
             font-size: 2em;
             margin-top: 5vh;
         }
-        #userScore {
-
-        }
         #topScore {
             li {
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid $black;
             }
             border-bottom: none;
         }
     }
 }
 #right {
-    background: green;
+    background: $color4;
     position: absolute;
     width: 30vw;
     height:100vh;
@@ -129,9 +155,13 @@
         margin-left: 2vw;
         height: 70vh;
         margin-top: 2vh;
-        background: grey;
+        background: $color1;
+        overflow: auto;
     }
     #chatInput {
+        color: $white;
+        background: $color1;
+        border-color: $color2;
         width: 26vw;
         margin-left: 2vw;
         margin-top: 1vh;
@@ -140,6 +170,9 @@
         font-size: 4vh;
     }
     #chatSubmit {
+        color: $color2;
+        background: $color1;
+        border-color: $color2;
         margin-top: 1vh;
         width: 26vw;
         margin-left: 2vw;
