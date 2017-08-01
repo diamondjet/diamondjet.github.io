@@ -157,6 +157,11 @@ $black: #080808;
         margin-top: 2vh;
         background: $color1;
         overflow: auto;
+        overflow-x: none;
+        word-wrap: break-word;
+        span {
+            font-weight: bold;
+        }
     }
     #chatInput {
         color: $white;

@@ -8,28 +8,28 @@ function Question () {
 }
 function getQuestion() {
     if(!instanseQ){
-		 instanseQ = true;
-		 $.ajax({
-			   type: "POST",
-			   url: "questions/questions.php",
-			   data: {
-			   			'function': 'getQuestions'
-						},
-			   dataType: "json",
+        instanseQ = true;
+        $.ajax({
+            type: "POST",
+            url: "questions/questions.php",
+            data: {
+                'function': 'getQuestions'
+            },
+            dataType: "json",
 
-			   success: function(data){
-                   var x = data.q.qu[Math.floor(Math.random()*data.q.qu.length)];
-                   qu.answer = shuffle([x.c,x.a[0],x.a[1],x.a[2]]);
-                   qu.correct = x.c;
-                   $('#question').html(x.q);
-                   $('.answer.a h4').html(qu.answer[0]);
-                   $('.answer.b h4').html(qu.answer[1]);
-                   $('.answer.c h4').html(qu.answer[2]);
-                   $('.answer.d h4').html(qu.answer[3]);
-				   instanseQ = false;
-			   },
-			});
-	}
+            success: function(data){
+                var x = data.q.qu[Math.floor(Math.random()*data.q.qu.length)];
+                qu.answer = shuffle([x.c,x.a[0],x.a[1],x.a[2]]);
+                qu.correct = x.c;
+                $('#question').html(x.q);
+                $('.answer.a h4').html(qu.answer[0]);
+                $('.answer.b h4').html(qu.answer[1]);
+                $('.answer.c h4').html(qu.answer[2]);
+                $('.answer.d h4').html(qu.answer[3]);
+                instanseQ = false;
+            },
+        });
+    }
 }
 var jk;
 var qu = new Question();
@@ -43,19 +43,22 @@ $(document).ready(function() {
         go ? $(e.currentTarget).css('background','inherit') : false;
     });
     $('.answer').click(function(e) {
-        go = false;
-        $('.answer').css('background','inherit');
-        if (e.currentTarget.innerText == qu.correct) {
-            $(e.currentTarget).css('background','#3cdf00')
-            score+=1
-        } else {
-            $(e.currentTarget).css('background','#ca0020')
-        }
-        setTimeout(function () {
-            qu.get();
+        if (go) {
+            go = false;
+            answered += 1;
             $('.answer').css('background','inherit');
-            go = true;
-        },1000);
+            if (e.currentTarget.innerText == qu.correct) {
+                $(e.currentTarget).css('background','#3cdf00')
+                score+=1
+            } else {
+                $(e.currentTarget).css('background','#ca0020')
+            }
+            setTimeout(function () {
+                qu.get();
+                $('.answer').css('background','inherit');
+                go = true;
+            },1000);
+        }
     });
 });
 function shuffle(arr) {
