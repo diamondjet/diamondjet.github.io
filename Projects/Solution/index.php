@@ -20,7 +20,7 @@
             </ul>
             <ol>
                 <li class='login'>
-                    <input type="text" placeholder="Username" id='SName' />
+                    <input type="text" placeholder="Username" id='SName' maxlength="9" />
                     <input type="button" value="Go" id='BLogin' />
                 </li>
                 <li class="score">
@@ -85,4 +85,5 @@
     <script src="scripts/main.js"></script>
     <script src='chat/chat.js'></script>
     <script src="questions/questions.js"></script>
+    <script src="score/score.js"></script>
 </html>

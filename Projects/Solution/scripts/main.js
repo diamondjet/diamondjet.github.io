@@ -1,7 +1,13 @@
 var score = 0;
 var answered = 0;
 var name = 'guest';
+function shuffle(arr) {
+    return (arr.length <= 1 ? arr : arr.splice(Math.floor(Math.random()*arr.length),1).concat(shuffle(arr)));
+    //recursive function that shuffles an array by taking a random item and moving it to the start then shuffling the remainder array and placing it after it
+}
 $(document).ready(function() {
+    $('#score').html(score);
+    $('#percentage').html("0%");
     $('#left a').click(function(e) { //menu
         $('#q,#d,#s').css('display','none'); //hide the main section
         $('#'+e.currentTarget.id[0]).css('display', 'block'); //display selected section

@@ -2,37 +2,40 @@
 var instanseQ = false;
 
 function Question () {
-    this.get = getQuestion;
+    this.get = function() {
+        if(!instanseQ){
+            instanseQ = true;
+            $.ajax({
+                type: "POST",
+                url: "questions/questions.php",
+                data: {
+                    'function': 'getQuestions'
+                },
+                dataType: "json",
+
+                success: function(data){
+                    instanseQ = false;
+                    changeQ(data.qu[Math.floor(Math.random()*data.qu.length)]);
+                },
+            });
+        }
+    };
     this.correct = "a"
     this.answer = ["a","b","c","d"];
-}
-function getQuestion() {
-    if(!instanseQ){
-        instanseQ = true;
-        $.ajax({
-            type: "POST",
-            url: "questions/questions.php",
-            data: {
-                'function': 'getQuestions'
-            },
-            dataType: "json",
-
-            success: function(data){
-                var x = data.q.qu[Math.floor(Math.random()*data.q.qu.length)];
-                qu.answer = shuffle([x.c,x.a[0],x.a[1],x.a[2]]);
-                qu.correct = x.c;
-                $('#question').html(x.q);
-                $('.answer.a h4').html(qu.answer[0]);
-                $('.answer.b h4').html(qu.answer[1]);
-                $('.answer.c h4').html(qu.answer[2]);
-                $('.answer.d h4').html(qu.answer[3]);
-                instanseQ = false;
-            },
-        });
+    this.go = function(data) {
+        this.answer = shuffle([data.c,data.a[0],data.a[1],data.a[2]]);
+        this.correct = data.c;
+        $('#question').html(data.q);
+        $('.answer.a h4').html(this.answer[0]);
+        $('.answer.b h4').html(this.answer[1]);
+        $('.answer.c h4').html(this.answer[2]);
+        $('.answer.d h4').html(this.answer[3]);
     }
 }
-var jk;
 var qu = new Question();
+function changeQ(data) {
+    qu.go(data);
+}
 $(document).ready(function() {
     qu.get();
     var go = true;
@@ -58,10 +61,8 @@ $(document).ready(function() {
                 $('.answer').css('background','inherit');
                 go = true;
             },1000);
+            $('#score').html(score);
+            $('#percentage').html(Math.round(score/answered*10000)/100 + "%");
         }
     });
 });
-function shuffle(arr) {
-    return (arr.length <= 1 ? arr : arr.splice(Math.floor(Math.random()*arr.length),1).concat(shuffle(arr)));
-    //recursive function that shuffles an array by taking a random item and moving it to the start then shuffling the remainder array and placing it after it
-}
