@@ -1,4 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<score check="works">
-    <datb>1005</datb>
-</score>
+<score check="works"><guest>4</guest></score>

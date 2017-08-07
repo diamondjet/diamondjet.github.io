@@ -16,7 +16,7 @@ switch ($function) {
     }
     if (!$done) {
         $score = $xmlDoc->getElementsByTagName('score');
-        $x->appendChild('check','works');//NEED TO ADD NEW ELEMENT
+        $x->appendChild($xmlDoc->createElement($_POST['username'], 1));//NEED TO ADD NEW ELEMENT
     }
     $xmlDoc->save("score.xml");
     break;

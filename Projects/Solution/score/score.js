@@ -16,5 +16,4 @@ function Score() {
     };
 }
 
-var score = new Score();
-score.addScore();
+var scoreKeeper = new Score();
