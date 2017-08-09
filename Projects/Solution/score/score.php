@@ -1,29 +1,62 @@
 <?php
+$score;
+$wrong;
 $log = array();
 $function = $_POST['function'];
-switch ($function) {
-    case 'addScore':
+$name=$_POST['username'];
+function addScore($c = true)
+{
     $xmlDoc = new DOMDocument();
     $xmlDoc->load("score.xml");
     $x = $xmlDoc->documentElement;
-    $done = false;
+    $exists = false;
+    $count = 0;
     foreach ($x->childNodes AS $item) {
-        if ($item->nodeName == $_POST['username']) {
-            $item->nodeValue = $item->nodeValue + 1;
-            //$log['b']=$xmlDoc;
-            $done = true;
+        $GLOBALS['log'][$count]=$item->nodeName;
+        $count += 1;
+        if ($item->nodeName == $GLOBALS['name']) {
+            $exists = true;
+            if ($c) {
+                $item->getElementsByTagName('score')[0]->nodeValue+=1;
+            }
+            $item->getElementsByTagName('wrong')[0]->nodeValue+=1;
+            //break;
         }
     }
-    if (!$done) {
-        $score = $xmlDoc->getElementsByTagName('score');
-        $x->appendChild($xmlDoc->createElement($_POST['username'], 1));//NEED TO ADD NEW ELEMENT
+    if (!$exists) {
+        $x->appendChild($xmlDoc->createElement($GLOBALS['name']));
+        if ($c) {
+            $x->getElementsByTagName($GLOBALS['name'])[0]->appendChild($xmlDoc->createElement('score',1));
+        } else {
+            $x->getElementsByTagName($GLOBALS['name'])[0]->appendChild($xmlDoc->createElement('score',0));
+        }
+        $x->getElementsByTagName($GLOBALS['name'])[0]->appendChild($xmlDoc->createElement('wrong',1));
+        /*if($c) {
+            $x->getElementsByTagName($GLOBALS['name'])[0]->nodeValue += 1;
+        }*/
     }
+    $GLOBALS['score'] = $x->getElementsByTagName($GLOBALS['name'])[0]->getElementsByTagName('score')[0]->nodeValue;
+    $GLOBALS['wrong'] = $x->getElementsByTagName($GLOBALS['name'])[0]->getElementsByTagName('wrong')[0]->nodeValue;
+    /*
+    if(!$exists && $c) {
+        $x->appendChild($xmlDoc->createElement($GLOBALS['name'],1));
+        $GLOBALS['score']=1;
+    }
+    elseif (!$exists) {
+        $x->appendChild($xmlDoc->createElement($GLOBALS['name'],0));
+        $GLOBALS['score']=0;
+    }*/
+    $GLOBALS['log']['exists']=$exists;
     $xmlDoc->save("score.xml");
-    break;
-
-    default:
-        # code...
-        break;
 }
-echo json_encode($log);
+switch ($function) {
+    case 'addScore':
+        addScore(true);
+        break;
+    case 'addWrong':
+        addScore(false);
+        break;
+
+}
+echo json_encode(array($score,$wrong));
 ?>

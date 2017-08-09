@@ -52,17 +52,21 @@ $(document).ready(function() {
             $('.answer').css('background','inherit');
             if (e.currentTarget.innerText == qu.correct) {
                 $(e.currentTarget).css('background','#3cdf00')
-                score+=1
+                scoreKeeper.addScore();
             } else {
                 $(e.currentTarget).css('background','#ca0020')
+                scoreKeeper.addWrong();
             }
             setTimeout(function () {
                 qu.get();
                 $('.answer').css('background','inherit');
                 go = true;
             },1000);
-            $('#score').html(score);
-            $('#percentage').html(Math.round(score/answered*10000)/100 + "%");
         }
     });
 });
+
+function changeScore() {
+    $('#score').html(score);
+    $('#percentage').html(Math.round(score/answered*10000)/100 + "%");
+}
