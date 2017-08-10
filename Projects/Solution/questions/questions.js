@@ -68,5 +68,5 @@ $(document).ready(function() {
 
 function changeScore() {
     $('#score').html(score);
-    $('#percentage').html(Math.round(score/answered*10000)/100 + "%");
+    answered == 0 ? $('#percentage').html('0%') : $('#percentage').html(Math.round(score/answered*10000)/100 + "%");
 }

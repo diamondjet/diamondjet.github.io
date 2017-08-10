@@ -62,6 +62,17 @@ function Chat () {
             });
         }
     };
+    //hidden function to clear chat file
+    /*this.reset = function() {
+        $.ajax({
+            type: "POST",
+            url: "chat/chat.php",
+            data: {
+                'function': 'reset'
+            },
+            dataType: "json",
+        });
+    }*/
 }
 
 //html stuff

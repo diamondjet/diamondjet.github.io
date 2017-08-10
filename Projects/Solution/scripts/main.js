@@ -14,7 +14,7 @@ $(document).ready(function() {
         $("#top h2").html(e.currentTarget.innerText.toUpperCase()); //change subheading
     });
     function enterName() {
-        name = $("#SName").val().replace(/[^\w\s]/gi, '');
+        name = $("#SName").val().replace(/[^\w\s]/gi, '').replace(/ /g,"_");
         if(name.length > 0 && name.length < 10) {
             $('.login').html("<h4>Username: <span>"+name+"</span></h4>");
         }
