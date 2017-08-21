@@ -14,4 +14,12 @@
         <a>12m/h</a>
         <a>7m/h</a>
     </qu>
+    <qu>
+        <q>What is your favorite colour?</q>
+        <c>Red</c>
+        <a>Blue</a>
+        <a>Yellow</a>
+        <a>Green</a>
+    </qu>
+
 </questions>

@@ -90,7 +90,7 @@ $(document).ready(function() {
 
 });
 function submitChat() {
-    $("#chatInput").val().replace(/[^a-z0-9]/gi, '').length > 0 ? chat.send($("#chatInput").val().replace(/[^\w\s]/gi, ''), name.replace(/[^\w\s]/gi, '')) : false;
+    $("#chatInput").val().replace(/[^\w\s.,!?]/gi, '').length > 0 ? chat.send($("#chatInput").val().replace(/[^\w\s.,!?]/gi, '■'), name.replace(/[^\w\s]/gi, '')) : false;
     $("#chatInput").val("");
     setTimeout(chat.update,1000)
 }

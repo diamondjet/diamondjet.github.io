@@ -11,12 +11,17 @@ $(document).ready(function() {
     $('#left a').click(function(e) { //menu
         $('#q,#d,#s').css('display','none'); //hide the main section
         $('#'+e.currentTarget.id[0]).css('display', 'block'); //display selected section
-        $("#top h2").html(e.currentTarget.innerText.toUpperCase()); //change subheading
+        $("#top h2").html(e.currentTarget.innerText.toUpperCase().substring(0,(e.currentTarget.innerText.length)-1)); //change subheading
+        window.x = e.currentTarget.innerText;
     });
+    scoreKeeper.getCurrent();
+    scoreKeeper.getTop();
+    setInterval(scoreKeeper.getTop,10000);
     function enterName() {
         name = $("#SName").val().replace(/[^\w\s]/gi, '').replace(/ /g,"_");
         if(name.length > 0 && name.length < 10) {
             $('.login').html("<h4>Username: <span>"+name+"</span></h4>");
+            scoreKeeper.getCurrent();
         }
         else {
             $('#SName').attr('placeholder','Try Again');
@@ -34,3 +39,8 @@ $(document).ready(function() {
         }
     });
 });
+$(window).ready(setTimeout(function () {
+    $('#load').fadeOut(400,function () {
+        $(this).remove();
+    });
+},1000));

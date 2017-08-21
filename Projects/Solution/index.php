@@ -6,6 +6,15 @@
         <link rel="stylesheet" type="text/css" href="style/main.css" />
     </head>
     <body>
+        <div id='load'>
+            <noscript id='topNoscript'>This website requires javascript to run.</noscript>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <noscript>Please enable javascript to continue.</noscript>
+        </div>
         <div id='left'>
             <ul>
                 <a href="#" id='qb'><li>

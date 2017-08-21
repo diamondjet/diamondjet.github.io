@@ -64,6 +64,15 @@ switch ($function) {
         arsort($top);
         $GLOBALS['log'] = array_slice($top,0,10);
         break;
+    case 'getCurrent':
+        addScore(false);
+        $xmlDoc = new DOMDocument();
+        $xmlDoc->load("score.xml");
+        $x = $xmlDoc->documentElement;
+        $x->getElementsByTagName($_POST['username'])[0]->getElementsByTagName('wrong')[0]->nodeValue-=1;
+        $log[1]-=1;
+        $xmlDoc->save("score.xml");
+        break;
 }
 echo json_encode($log);
 ?>

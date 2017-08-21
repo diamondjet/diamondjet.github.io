@@ -17,7 +17,6 @@ function Score() {
         })
     }
     this.addScore = function() {
-        //this.addWrong();
         $.ajax({
             type: "POST",
             url: "score/score.php",
@@ -45,15 +44,44 @@ function Score() {
 
             success: function(data){
                 //magic to sort
-                var Arr = [];
-                for (var dataPoint in data) {
-                    Arr.push([dataPoint, data[dataPoint]]);
+                var Arr = []
+                for (var keys in data) {
+                    Arr.push([keys,data[keys]])
                 }
+                var min, hold;
+                for (var i = 0; i<10; i++) {
+                    max = i;
+                    for (var j = i+1; j<Arr.length; j++) {
+                        parseInt(Arr[max][1])<parseInt(Arr[j][1]) ? max = j : false;
+                    }
+                    hold = Arr[i];
+                    Arr[i] = Arr[max];
+                    Arr[max] = hold;
+                    if (Arr[i]) {
+                        $('#topScore li:nth-child('+(i+1)+')').html(Arr[i][0]+': <span>'+Arr[i][1]+'</span>');
+                    }
+                    else {
+                        $('#topScore li:nth-child('+(i+1)+')').html('&nbsp;');
+                    }
 
-                Arr.sort(function(a, b) {
-                    return a[1] - b[1];
-                });
-                console.log(Arr);
+                }
+            },
+        });
+    }
+    this.getCurrent = function () {
+        $.ajax({
+            type: "POST",
+            url: "score/score.php",
+            data: {
+                'function': 'getCurrent',
+                'username': 'u'+name
+            },
+            dataType: "json",
+
+            success: function(data){
+                score = data[0];
+                answered = data[1];
+                changeScore();
             },
         });
     }
