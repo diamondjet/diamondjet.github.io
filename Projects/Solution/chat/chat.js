@@ -4,33 +4,29 @@ Created by: Kenrick Beckett
 Name: Chat Engine
 */
 
-var instanse = false;
 var state = 0;
 
 function Chat () {
     this.update = function(){
-        if(!instanse){
-            instanse = true;
-            $.ajax({
-                type: "POST",
-                url: "chat/chat.php",
-                data: {
-                    'function': 'update',
-                    'state': state
-                },
-                dataType: "json",
-                success: function(data){
-                    if(data.text){
-                        for (var i = 0; i < data.text.length; i++) {
-                            $('#chatInternal').append($("<p>"+ data.text[i] +"</p>"));
-                        }
+        $.ajax({
+            type: "POST",
+            url: "chat/chat.php",
+            data: {
+                'function': 'update',
+                'state': state
+            },
+            dataType: "json",
+            success: function(data){
+                if(data.text){
+                    for (var i = 0; i < data.text.length; i++) {
+                        $('#chatInternal').append($("<p>"+ data.text[i] +"</p>"));
                     }
-                    instanse = false;
-                    state = data.state;
-                    $('#chat').scrollTop($('#chat')[0].scrollHeight);
-                },
-            });
-        }
+                }
+                instanse = false;
+                state = data.state;
+                $('#chat').scrollTop($('#chat')[0].scrollHeight);
+            },
+        });
     }
     this.send = function(message, nickname){
         $.ajax({
@@ -45,22 +41,18 @@ function Chat () {
         });
     };
     this.getState = function (){
-        if(!instanse){
-            instanse = true;
-            $.ajax({
-                type: "POST",
-                url: "chat/chat.php",
-                data: {
-                    'function': 'getState'
-                },
-                dataType: "json",
+        $.ajax({
+            type: "POST",
+            url: "chat/chat.php",
+            data: {
+                'function': 'getState'
+            },
+            dataType: "json",
 
-                success: function(data){
-                    state = data.state;
-                    instanse = false;
-                },
-            });
-        }
+            success: function(data){
+                state = data.state;
+            },
+        });
     };
     //hidden function to clear chat file
     /*this.reset = function() {
@@ -78,7 +70,6 @@ function Chat () {
 //html stuff
 var chat =  new Chat();
 $(document).ready(function() {
-    //chat.update();
     chat.getState();
     setInterval(chat.update, 5000);
     $("#chatSubmit").click(submitChat);

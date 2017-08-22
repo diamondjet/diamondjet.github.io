@@ -11,6 +11,10 @@ $black: #080808;
     padding: 0;
     color: $black;
     font-family: Verdana, sans-serif;
+    vertical-align: middle;
+}
+input[type=button]:hover, button {
+    cursor: pointer;
 }
 #load {
     width: 100vw;
@@ -150,6 +154,9 @@ $black: #080808;
         #aOuter {
             margin-left: 5vw;
             margin-top: 5vh;
+            .answer:hover {
+                cursor: pointer;
+            }
             .answer {
                 display: table; //for vertical text align
                 h4 {
@@ -188,17 +195,18 @@ $black: #080808;
     }
     #s {
         display: none;
-        div {
-            width: 50vw;
-            height: 6vh;
-            font-size: 5vh;
-            line-height: 6vh;
-            margin-left: 5vw;
-            margin-top: 5vh;
-            text-align: center;
-            b {
-                font-weight: bold;
-            }
+        li {
+            text-decoration: underline;
+        }
+        width: 50vw;
+        height: 6vh;
+        font-size: 5vh;
+        line-height: 6vh;
+        margin-left: 5vw;
+        margin-top: 5vh;
+        text-align: center;
+        b {
+            font-weight: bold;
         }
     }
 }
@@ -209,13 +217,14 @@ $black: #080808;
     height:100vh;
     right: 0;
     #chat {
+        position: absolute;
         width: 16vw;
         margin-left: 2vw;
         height: 70vh;
         margin-top: 2vh;
         background: $color1;
         overflow: auto;
-        overflow-x: none;
+        overflow-x: hidden;
         word-wrap: break-word;
         #chatInternal {
             p {
@@ -231,24 +240,27 @@ $black: #080808;
 
     }
     #chatInput {
+        position: absolute;
         color: $white;
         background: $color1;
         border: 0.1vh solid $color2;
-        width: 15.8vw;
+        width: 15.9vw;
         margin-left: 2vw;
-        margin-top: 1vh;
-        height: 19.8vh;
+        margin-top: 73vh;
+        height: 20vh;
         resize: none;
         font-size: 4vh;
     }
     #chatSubmit {
+        position: absolute;
         color: $color2;
         background: $color1;
         border: 0.1vh solid $color2;
-        margin-top: 0.1vh;
-        width: 15.8vw;
+        margin-top: 95vh;
+        width: 16vw;
         margin-left: 2vw;
         height:3.8vh;
-        font-size: 3vh;
+        line-height: 3.8vh;
+        font-size: 2.8vh;
     }
 }

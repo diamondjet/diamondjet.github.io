@@ -1,24 +1,18 @@
-
-var instanseQ = false;
-
 function Question () {
     this.get = function() {
-        if(!instanseQ){
-            instanseQ = true;
-            $.ajax({
-                type: "POST",
-                url: "questions/questions.php",
-                data: {
-                    'function': 'getQuestions'
-                },
-                dataType: "json",
 
-                success: function(data){
-                    instanseQ = false;
-                    changeQ(data.qu[Math.floor(Math.random()*data.qu.length)]);
-                },
-            });
-        }
+        $.ajax({
+            type: "POST",
+            url: "questions/questions.php",
+            data: {
+                'function': 'getQuestions'
+            },
+            dataType: "json",
+
+            success: function(data){
+                changeQ(data.qu[Math.floor(Math.random()*data.qu.length)]);
+            },
+        });
     };
     this.correct = "a"
     this.answer = ["a","b","c","d"];

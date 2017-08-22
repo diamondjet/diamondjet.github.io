@@ -58,10 +58,10 @@ function Score() {
                     Arr[i] = Arr[max];
                     Arr[max] = hold;
                     if (Arr[i]) {
-                        $('#topScore li:nth-child('+(i+1)+')').html('<b>' + (i+1) + ':</b> ' + Arr[i][0] + ' - <span>'+Arr[i][1]+'</span>');
+                        $('#s li:nth-child('+(i+1)+')').html('<b>' + (i+1) + ':</b> ' + Arr[i][0] + ' - <span>'+Arr[i][1]+'</span>');
                     }
                     else {
-                        $('#topScore li:nth-child('+(i+1)+')').html('<b>'+(i+1)+'</b>:&nbsp;');
+                        $('#s li:nth-child('+(i+1)+')').html('<b>'+(i+1)+'</b>:&nbsp;');
                     }
 
                 }

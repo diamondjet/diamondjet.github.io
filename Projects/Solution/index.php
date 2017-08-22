@@ -64,20 +64,18 @@
                 <embed src="pdf/Computing_Study_Design.pdf" type='application/pdf'>
             </section>
             <section id="s">
-                <div id='topScore'>
-                    <ol>
-                        <li>1. <span></span></li>
-                        <li>2. <span></span></li>
-                        <li>3. <span></span></li>
-                        <li>4. <span></span></li>
-                        <li>5. <span></span></li>
-                        <li>6. <span></span></li>
-                        <li>7. <span></span></li>
-                        <li>8. <span></span></li>
-                        <li>9. <span></span></li>
-                        <li>10. <span></span></li>
-                    </ol>
-                </div>
+                <ol>
+                    <li>1. <span></span></li>
+                    <li>2. <span></span></li>
+                    <li>3. <span></span></li>
+                    <li>4. <span></span></li>
+                    <li>5. <span></span></li>
+                    <li>6. <span></span></li>
+                    <li>7. <span></span></li>
+                    <li>8. <span></span></li>
+                    <li>9. <span></span></li>
+                    <li>10. <span></span></li>
+                </ol>
             </section>
         </div>
         <div id='right'>
