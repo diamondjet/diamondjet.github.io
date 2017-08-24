@@ -48,14 +48,24 @@ $(document).ready(function() {
                 $(e.currentTarget).css('background','#3cdf00')
                 scoreKeeper.addScore();
             } else {
-                $(e.currentTarget).css('background','#ca0020')
+                $(e.currentTarget).css('background','#ca0020');
+                if ($('.answer')[0].innerText == qu.correct) {
+                    $($('.answer')[0]).css('background','#3cdf00')
+                } else if ($('.answer')[1].innerText == qu.correct) {
+                    $($('.answer')[1]).css('background','#3cdf00')
+                } else if ($('.answer')[2].innerText == qu.correct) {
+                    $($('.answer')[2]).css('background','#3cdf00')
+                } else {
+                    $($('.answer')[3]).css('background','#3cdf00')
+                }
                 scoreKeeper.addWrong();
+
             }
             setTimeout(function () {
                 qu.get();
                 $('.answer').css('background','inherit');
                 go = true;
-            },1000);
+            },1500);
         }
     });
 });

@@ -1,25 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <questions>
     <qu>
-        <q>Airspeed?</q>
-        <c>10m/s</c>
-        <a>5m/s</a>
-        <a>12m/s</a>
-        <a>7m/s</a>
+        <q>The stages of the problem solving methodology are:</q>
+        <c>Analysis, Design, Development, Evaluation</c>
+        <a>Investigation, Design, Development, Evaluation</a>
+        <a>Analysis, Design, Implementation, Evaluation</a>
+        <a>Analysis, Design, Development, Evaluation</a>
     </qu>
     <qu>
-        <q>Airvelocity?</q>
-        <c>10m/h</c>
-        <a>5m/h</a>
-        <a>12m/h</a>
-        <a>7m/h</a>
+        <q>When programming, if you need to store thousands of values, all of the same data type, you would use:</q>
+        <c>an array.</c>
+        <a>a listbox.</a>
+        <a>a record.</a>
+        <a>variables.</a>
     </qu>
     <qu>
-        <q>What is your favorite colour?</q>
-        <c>Red</c>
-        <a>Blue</a>
-        <a>Yellow</a>
-        <a>Green</a>
+        <q>In a use case diagram (UCD), a stick figure represents:</q>
+        <c>a role.</c>
+        <a>a person.</a>
+        <a>a process.</a>
+        <a>data transmission.</a>
     </qu>
-
+    <qu>
+        <q>Which of the following is not a factor that influences the design of solutions?</q>
+        <c>Authenticity</c>
+        <a>Useability</a>
+        <a>Affordability</a>
+        <a>Marketability</a>
+    </qu>
+    <qu>
+        <q>Evaluation criteria are created at which stage of the problem solving methodology?</q>
+        <c>Design</c>
+        <a>Analysis</a>
+        <a>Testing</a>
+        <a>Evaluation</a>
+    </qu>
+    <qu>
+        <q>Middleborough High School in Victoria has recently started an iPad programme, and the powers that be have decided that students aren’t allowed to use hard copy textbooks anymore. Your friend Macy had a great money saving idea – After she purchased the e-book for Software Development she handed it out to all of her friends to use on their iPads so they won’t have to pay for it. Which law is Macy in breach of?</q>
+        <c>Copyright Act 1968</c>
+        <a>Privacy Act 1988</a>
+        <a>Information Privacy Act 2000</a>
+        <a>Health Records Act 2001</a>
+    </qu>
+    <qu>
+        <q>Which searching technique would work best on an unsorted list?</q>
+        <c>Linear search</c>
+        <a>Binary search</a>
+        <a>Quick search</a>
+        <a>Bubble search</a>
+    </qu>
+    <qu>
+        <q>In a restaurant, when a customer places an order for a main meal about half of them also order dessert. The Use Case Diagram that best describes this scenario is</q>
+        <c>Order main meal &lt; &lt;&lt;extend&gt;&gt; -- Order dessert</c>
+        <a>Order main meal &lt; &lt;&lt;include&gt;&gt; -- Order dessert</a>
+        <a>Order main meal -- &lt;&lt;include&gt;&gt; &gt; Order dessert</a>
+        <a>Order main meal -- &lt;&lt;extend&gt;&gt; &gt; Order dessert</a>
+    </qu>
+    <qu>
+        <q>Evaluation of an information system is conducted:</q>
+        <c>after the system has been implemented and has been running for a period of time.</c>
+        <a>at the same time as it is being tested.</a>
+        <a>immediately following the development phase.</a>
+        <a>during the design phase</a>
+    </qu>
+    <qu>
+        <q>When using a sequential file, data can only be accessed</q>
+        <c>by reading from the start of the file</c>
+        <a>in alphabetical order</a>
+        <a>after the contents have been sorted.</a>
+        <a>in numerical order.</a>
+    </qu>
+    <qu>
+        <q>A nature photographer takes about 100 images per day of the wildlife that he sees in his travels. Each of these images are 6MB, and he takes pictures 50 days per year (he tries to get out at least once every weekend!). At the end of an entire year, how much storage space is required to store all of his images?</q>
+        <c>30 gigabytes</c>
+        <a>30,000 gigabytes</a>
+        <a>3 gigabytes</a>
+        <a>300 megabytes</a>
+    </qu>
+    <qu>
+        <q>Spyware is an example of what type of threat to the security and integrity of data?</q>
+        <c>Deliberate</c>
+        <a>Disappointing</a>
+        <a>Events-based</a>
+        <a>Accidental</a>
+    </qu>
+    <qu>
+        <q>Your friend has recently downloaded what he thought was a great new music track from an internet peer-to-peer application. After he double clicked on it to play it, his computer immediately opened up pop-up advertisements, and it has been happening ever since. What has he downloaded?</q>
+        <c>A Trojan</c>
+        <a>A virus</a>
+        <a>Spyware</a>
+        <a>A worm</a>
+    </qu>
+    <qu>
+        <q>An organisation wishes to establish a VPN between their web server and the homes of their employees, so they can securely access their work from home. The most appropriate method of security they should use is:</q>
+        <c>SSL</c>
+        <a>TCP/IP</a>
+        <a>FTP</a>
+        <a>HTTP</a>
+    </qu>
 </questions>

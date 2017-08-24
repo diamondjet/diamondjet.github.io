@@ -22,7 +22,6 @@ function Chat () {
                         $('#chatInternal').append($("<p>"+ data.text[i] +"</p>"));
                     }
                 }
-                instanse = false;
                 state = data.state;
                 $('#chat').scrollTop($('#chat')[0].scrollHeight);
             },
@@ -83,5 +82,5 @@ $(document).ready(function() {
 function submitChat() {
     $("#chatInput").val().replace(/[^\w\s.,!?]/gi, '').length > 0 ? chat.send($("#chatInput").val().replace(/[^\w\s.,!?]/gi, '■'), name.replace(/[^\w\s]/gi, '')) : false;
     $("#chatInput").val("");
-    setTimeout(chat.update,1000)
+    chat.update()
 }
