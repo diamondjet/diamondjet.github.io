@@ -5,7 +5,7 @@ function Score() {
             url: "score/score.php",
             data: {
                 'function': 'addWrong',
-                'username': 'u'+name
+                'username': name
             },
             dataType: "json",
 
@@ -22,7 +22,7 @@ function Score() {
             url: "score/score.php",
             data: {
                 'function': 'addScore',
-                'username': 'u'+name
+                'username': name
             },
             dataType: "json",
 
@@ -74,7 +74,7 @@ function Score() {
             url: "score/score.php",
             data: {
                 'function': 'getCurrent',
-                'username': 'u'+name
+                'username': name
             },
             dataType: "json",
 

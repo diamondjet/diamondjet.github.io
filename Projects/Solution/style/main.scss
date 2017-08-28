@@ -1,11 +1,11 @@
 @import 'reset';
-//colours from http://colorbrewer2.org/#type=diverging&scheme=RdBu&n=5
-$color1: #ca0020;
-$color2: #f4a582;
-$color3: #92c5de;
-$color4: #0571b0;
-$white: #f7f7f7;
+
+$light: #ddd;
 $black: #080808;
+$dark: darken($light, 10%);
+$darker: darken($dark, 10%);
+
+
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@ input[type=button]:hover, button {
     position: absolute;
     margin-left: 0;
     margin-right: 0;
-    background: $color4;
+    background: $light;
     z-index: 10;
     noscript {
         position: absolute;
@@ -30,7 +30,6 @@ input[type=button]:hover, button {
         width: 100vw;
         font-size: 5vh;
         margin-top: 1vh;
-        color: $color1;
     }
     #topNoscript {
         margin-top: 42vh;
@@ -51,7 +50,7 @@ input[type=button]:hover, button {
         div {
             width: 4vh;
             height: 4vh;
-            background-color: $color1;
+            background: $darker;
             border-radius: 100%;
             display: inline-block;
             -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
@@ -78,7 +77,7 @@ input[type=button]:hover, button {
 }
 #left {
     font-size: 2vw;
-    background: $color4;
+    background: $darker;
     position: absolute;
     width: 20vw;
     height: 100vh;
@@ -103,7 +102,7 @@ input[type=button]:hover, button {
             input {
                 border: none;
                 margin: 0px;
-                background: $white;
+                background: $light;
                 font-size: inherit;
             }
             input[type=text] {
@@ -122,7 +121,7 @@ input[type=button]:hover, button {
 
 }
 #top {
-    background: $color3;
+    background: $dark;
     position: absolute;
     width: 60vw;
     height: 30vh;
@@ -138,7 +137,7 @@ input[type=button]:hover, button {
 
 }
 #bottom {
-    background: $color3;
+    background: $dark;
     position: absolute;
     width:60vw;
     height:70vh;
@@ -155,12 +154,14 @@ input[type=button]:hover, button {
             overflow-y: auto;
         }
         #aOuter {
+            background: $light;
             margin-left: 5vw;
             margin-top: 5vh;
             .answer:hover {
                 cursor: pointer;
             }
             .answer {
+                background: inherit;
                 display: table; //for vertical text align
                 h4 {
                     display: table-cell; //for vertical text align
@@ -171,20 +172,15 @@ input[type=button]:hover, button {
                     overflow-y: auto;
 
                 }
-
                 border: 0.1vh solid $black;
                 width: 25vw;
-                height: 19.8vh;
+                max-height: 19.8vh;
+                height:  19.8vh;
+                overflow-y: auto;
                 float: left;
-            }
-            .a {
-            }
-            .b {
             }
             .c {
                 clear: both;
-            }
-            .d {
             }
         }
 
@@ -214,18 +210,19 @@ input[type=button]:hover, button {
     }
 }
 #right {
-    background: $color4;
+    background: $darker;
     position: absolute;
     width: 20vw;
     height:100vh;
     right: 0;
     #chat {
         position: absolute;
+        font-size: 3vh;
         width: 16vw;
         margin-left: 2vw;
         height: 70vh;
         margin-top: 2vh;
-        background: $color1;
+        background: $light;
         overflow: auto;
         overflow-x: hidden;
         word-wrap: break-word;
@@ -244,9 +241,8 @@ input[type=button]:hover, button {
     }
     #chatInput {
         position: absolute;
-        color: $white;
-        background: $color1;
-        border: 0.1vh solid $color2;
+        background: $light;
+        border: 0.1vh solid $light;
         width: 15.9vw;
         margin-left: 2vw;
         margin-top: 73vh;
@@ -256,9 +252,8 @@ input[type=button]:hover, button {
     }
     #chatSubmit {
         position: absolute;
-        color: $color2;
-        background: $color1;
-        border: 0.1vh solid $color2;
+        background: $light;
+        border: 0.1vh solid $light;
         margin-top: 95vh;
         width: 16vw;
         margin-left: 2vw;

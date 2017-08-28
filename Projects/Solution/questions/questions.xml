@@ -50,13 +50,6 @@
         <a>Bubble search</a>
     </qu>
     <qu>
-        <q>In a restaurant, when a customer places an order for a main meal about half of them also order dessert. The Use Case Diagram that best describes this scenario is</q>
-        <c>Order main meal &lt; &lt;&lt;extend&gt;&gt; -- Order dessert</c>
-        <a>Order main meal &lt; &lt;&lt;include&gt;&gt; -- Order dessert</a>
-        <a>Order main meal -- &lt;&lt;include&gt;&gt; &gt; Order dessert</a>
-        <a>Order main meal -- &lt;&lt;extend&gt;&gt; &gt; Order dessert</a>
-    </qu>
-    <qu>
         <q>Evaluation of an information system is conducted:</q>
         <c>after the system has been implemented and has been running for a period of time.</c>
         <a>at the same time as it is being tested.</a>
