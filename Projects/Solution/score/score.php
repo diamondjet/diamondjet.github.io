@@ -1,12 +1,12 @@
 <?php
 
-$function=$_POST['function'];
+$function=preg_replace("/[^\w\s.,!?]/i", '', $_POST['function']);
 $log;
 function addScore($c = true)
 {
     $score;
     $wrong;
-    $name='u'.$_POST['username'];
+    $name='u'.preg_replace("/[^\w\s.,!?]/i", '', $_POST['username']);
     $xmlDoc = new DOMDocument();
     $xmlDoc->load("score.xml");
     $x = $xmlDoc->documentElement;
@@ -69,7 +69,7 @@ switch ($function) {
         $xmlDoc = new DOMDocument();
         $xmlDoc->load("score.xml");
         $x = $xmlDoc->documentElement;
-        $x->getElementsByTagName('u'.$_POST['username'])[0]->getElementsByTagName('wrong')[0]->nodeValue-=1;
+        $x->getElementsByTagName('u'.preg_replace("/[^\w\s.,!?]/i", '', $_POST['username']))[0]->getElementsByTagName('wrong')[0]->nodeValue-=1;
         $log[1]-=1;
         $xmlDoc->save("score.xml");
         break;

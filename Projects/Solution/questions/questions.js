@@ -20,6 +20,7 @@ function Question () {
         this.answer = shuffle([data.c,data.a[0],data.a[1],data.a[2]]);
         this.correct = data.c;
         $('#question').html(data.q.toUpperCase());
+        $('.question').scrollTop(0);
         $('.answer.a h4').html(this.answer[0].toUpperCase());
         $('.answer.b h4').html(this.answer[1].toUpperCase());
         $('.answer.c h4').html(this.answer[2].toUpperCase());

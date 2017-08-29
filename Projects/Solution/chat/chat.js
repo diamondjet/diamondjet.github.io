@@ -80,7 +80,7 @@ $(document).ready(function() {
 
 });
 function submitChat() {
-    $("#chatInput").val().replace(/[^\w\s.,!?]/gi, '').length > 0 ? chat.send($("#chatInput").val().replace(/[^\w\s.,!?]/gi, '■'), name.replace(/[^\w\s]/gi, '')) : false;
+    $("#chatInput").val().replace(/[^\s.,!?]/gi, '').length > 0 ? chat.send($("#chatInput").val().replace(/[^\w\s.,!?]/gi, '■'), name.replace(/[^\w\s]/gi, '')) : false;
     $("#chatInput").val("");
     chat.update()
 }

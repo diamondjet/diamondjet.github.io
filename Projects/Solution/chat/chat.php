@@ -1,6 +1,6 @@
 <?php
 
-$function = $_POST['function'];
+$function=preg_replace("/[^\w\s.,!?]/i", '', $_POST['function']);
 
 $log = array();
 
@@ -14,7 +14,7 @@ switch($function) {
     break;
 
     case('update'):
-        $state = $_POST['state'];
+        $state = preg_replace("/[^\w\s.,!?]/i", '', $_POST['state']);
         if(file_exists('chat.txt')){
             $lines = file('chat.txt');
         }
@@ -37,8 +37,8 @@ switch($function) {
     break;
 
     case('send'):
-        $nickname = htmlentities(strip_tags($_POST['nickname'])) . ': ';
-        $message = htmlentities(strip_tags($_POST['message']));
+        $nickname = htmlentities(strip_tags(preg_replace("/[^\w\s.,!?]/i", '', $_POST['nickname']))) . ': ';
+        $message = htmlentities(strip_tags(preg_replace("/[^\w\s.,!?■]/i", '', $_POST['message'])));
         if(($message) != "\n" && ($message) != ""){
             fwrite(fopen('chat.txt', 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n");
         }
