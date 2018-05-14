@@ -3,19 +3,19 @@
 <head id="head">
 	<title>Graphing Solution</title>
 	<meta charset="utf-8">
-	
+
 	<!-- Style sheets -->
-	<link href="../../src/css/kendo.common.min.css" rel="stylesheet">
+	<link href="../../src/css/kendo.css" rel="stylesheet">
 	<link href="../../src/css/jquery-ui.css" rel="stylesheet">
-	
+
 	<!-- Tab Icon -->
 	<link href="../../src/ico/ico.ico" rel="icon">
-	
+
 	<!-- Javascript -->
-	<script src="../../src/js/jquery.min.js"></script>
-	<script src="../../src/js/angular.min.js"></script>
-	<script src="../../src/js/kendo.all.min.js"></script>
-	<script src="../../src/js/jquery-ui.min.js"></script>
+	<script src="../../src/js/jquery.js"></script>
+	<script src="../../src/js/angular.js"></script>
+	<script src="../../src/js/kendo.js"></script>
+	<script src="../../src/js/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -169,7 +169,7 @@
 	var dataCount=0;
 	var pointCount=0;
 	var hold = "";
-	
+
 	$(function() {
 		var count = 0;
 		$( ".accordian" ).accordion({
@@ -188,7 +188,7 @@
 				activeHeader: "ui-icon-circle-minus"
 			}
 		});
-		
+
 		function clear() {
 			console.clear();
 			count ++;
@@ -201,7 +201,7 @@
 		}
 		window.setInterval(clear, 1000);
 	});
-	
+
 	function tableSize() {
 		var col=document.getElementById("cols").value;
 		var row=document.getElementById('rows').value;
