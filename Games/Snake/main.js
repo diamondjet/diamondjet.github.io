@@ -7,7 +7,7 @@ function setup() {
     background(51);
     frameRate(10);
     colorMode(HSB,1.0)
-    highscore = Cookies.get('highscore') != undefined ? Math.floor(Cookies.get('highscore')) : 0;
+    highscore = Cookies.get('snakeHighscore') != undefined ? Math.floor(Cookies.get('snakeHighscore')) : 0;
     snake.highscore = highscore;
 }
 var highscore = 0;
@@ -15,7 +15,7 @@ function draw() {
     snake.update();
     if(snake.isStopped()) {
         highscore = max(Math.floor(snake.highscore),highscore);
-        Cookies.set('highscore', highscore);
+        Cookies.set('snakeHighscore', highscore, { expires: 365, path: '' });
         snake.go();
     }
     //drawing
