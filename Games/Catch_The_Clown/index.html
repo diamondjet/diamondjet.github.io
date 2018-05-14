@@ -48,7 +48,7 @@
             line-height: 100px;
         }
 	</style>
-	<script src="http://www.jarrodtyzack.com/src/js/jquery.min.js"></script>
+	<script src="../../src/js/jquery.min.js"></script>
 	<script>
 		$(function() {
 			var w = window.innerWidth-100, h = window.innerHeight-100, x = 1, y = 1;
@@ -72,7 +72,7 @@
 				else {
 					changeDir(true);
 				}
-                
+
 				setTimeout(animate,20);
             }
             function changeDir(top) {
@@ -116,7 +116,7 @@
                 $(".score h1").html(score);
             });
             highscore = 0;
-            
+
             $(".clown").click(function() {
                 movement += 2
                 score += 2
@@ -160,7 +160,7 @@
                 return "";
             }
 		});
-        
+
 	</script>
 </head>
 <body>
