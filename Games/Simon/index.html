@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style/main.css" />
+        <link rel="icon" href="../../src/ico/ico.ico" />
+        <script src="../../src/js/jquery.min.js"></script>
+        <script src="../../src/js/js.cookie.js"></script>
+        <script src="js.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>SIMON</h1>
+        </header>
+        <div id='game'>
+            <div id="gameButtons">
+                <div id="b0"></div>
+                <div id="b1"></div>
+                <div id="b2"></div>
+                <div id="b3"></div>
+            </div>
+            <div id='score'>
+                <h2>0</h2>
+            </div>
+        </div>
+        <div id='menu'>
+            <div id='left'>
+                <h2>EASY</h2>
+                <h3 id="e0"></h3>
+                <h3 id="e1"></h3>
+                <h3 id="e2"></h3>
+                <h2>MEDIUM</h2>
+                <h3 id="m0"></h3>
+                <h3 id="m1"></h3>
+                <h3 id="m2"></h3>
+                <h2>HARD</h2>
+                <h3 id="h0"></h3>
+                <h3 id="h1"></h3>
+                <h3 id="h2"></h3>
+            </div>
+            <div id='right'>
+                <div id='playButton'>
+                    <h2>PLAY</h2>
+                </div>
+                <div id='difficulty'>
+                    <form>
+                        EASY <input type="radio" name='dificultySetting' value="0" /><br />
+                        MEDIUM <input type="radio" name='dificultySetting' value="1" checked="true" /><br />
+                        HARD <input type="radio" name='dificultySetting' value="2" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

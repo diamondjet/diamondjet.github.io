@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../../src/js/jquery.min.js"></script>
+    <script src="js.js"></script>
+    <title>DVD Rental Kiosk</title>
+    <link rel="icon" href="../../src/ico/ico.ico" />
+</head>
+<body>
+    <div class="dvdHolder"></div>
+    <div class="rightContainer">
+        <div class="dvdSlot">
+            <div class="dvdOut">
+                <div class="dvdSide w"></div>
+                <div class="disc" onclick="takeDVD()">
+                    <div class='innerDisc'></div>
+                </div>
+            </div>
+        </div>
+        <div class="returnButton"><input type='button' value='Return DVD' onclick='returnDVD()' /></div>
+    </div>
+    <div class='popUp'></div>
+</body>
+</html>
