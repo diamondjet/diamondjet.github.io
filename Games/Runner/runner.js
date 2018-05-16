@@ -92,8 +92,8 @@ class Runner {
         }
         if(this.player.xPos > this.mostRecent+10) {
             this.mostRecent += this.rate;
-            let he = this.ground.h * (random(1+min(this.speed/10,2))+1);
             this.speed+=this.sizing/70;
+            let he = this.ground.h * (random(2)+1);
             this.obstacles.push(new Obstacle(this.w,this.ground.y-he,this.player.w,he,this.speed));
         }
 
