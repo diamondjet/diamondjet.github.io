@@ -11,7 +11,7 @@ class Runner {
     reset() {
         this.obstacles = new Array();
         this.mostRecent = 0;
-        this.speed = 10;
+        this.speed = this.sizing/7;
         this.player.ySpeed = 0;
         this.player.xPos = 0;
         this.score = 0;
@@ -92,8 +92,8 @@ class Runner {
         }
         if(this.player.xPos > this.mostRecent+10) {
             this.mostRecent += this.rate;
-            this.speed+=0.1;
             let he = this.ground.h * (random(1+min(this.speed/10,2))+1);
+            this.speed+=this.sizing/70;
             this.obstacles.push(new Obstacle(this.w,this.ground.y-he,this.player.w,he,this.speed));
         }
 
