@@ -32,7 +32,6 @@ class Runner {
         this.ground.x = 0;
     }
     draw() {
-
         background(0.6,0.4,1);
         applyMatrix();
         translate(this.w-this.sizing*0.25,this.sizing*0.25);
@@ -79,7 +78,7 @@ class Runner {
         this.highscore = max(this.highscore,this.score);
         this.player.y -= this.player.ySpeed;
         this.player.ySpeed -= this.sizing/40;
-        this.player.xPos += 1;
+        this.player.xPos += this.sizing/70;
         if (this.player.y >= this.player.maxY) {
             this.player.y = this.player.maxY;
             this.player.ySpeed = 0;
