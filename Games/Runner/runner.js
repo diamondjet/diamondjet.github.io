@@ -15,7 +15,6 @@ class Runner {
         this.player.ySpeed = 0;
         this.player.xPos = 0;
         this.score = 0;
-        this.isDay = true;
         this.bright = 1
     }
     size(w,h) {
@@ -80,9 +79,6 @@ class Runner {
     update() {
         this.score += 1;
         this.highscore = max(this.highscore,this.score);
-        if(this.score % 1000 == 0) {
-            this.isDay = !this.isDay;
-        }
         this.player.y -= this.player.ySpeed;
         this.player.ySpeed -= this.sizing/40;
         this.player.xPos += 1;
