@@ -5,7 +5,6 @@ class Runner {
         this.size(w,h);
         this.rate = 70;
         this.highscore = 0;
-        this.reset();
     }
 
     reset() {
@@ -30,6 +29,7 @@ class Runner {
         this.ground.h = this.sizing/2;
         this.ground.y = this.h - this.sizing/2;
         this.ground.x = 0;
+        this.reset();
     }
     draw() {
         background(0.6,0.4,1);
