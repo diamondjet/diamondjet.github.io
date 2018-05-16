@@ -34,7 +34,6 @@ class Runner {
     draw() {
 
         background(0.6,0.4,1);
-
         applyMatrix();
         translate(this.w-this.sizing*0.25,this.sizing*0.25);
             fill(0.17,1,this.bright);
@@ -45,7 +44,6 @@ class Runner {
                 line(this.sizing*sin(i)*0.75,this.sizing*cos(i)*0.75,this.sizing*sin(i),this.sizing*cos(i));
             }
             noStroke();
-
         resetMatrix();
         fill(0.3,1,1);
         rect(this.ground.x,this.ground.y,this.ground.w,this.ground.h);
