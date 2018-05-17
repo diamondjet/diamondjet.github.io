@@ -3,7 +3,7 @@ class Runner {
         this.player = {};
         this.ground = {};
         this.size(w,h);
-        this.rate = 70;
+        this.rate = 50;
         this.highscore = 0;
     }
 
@@ -84,7 +84,7 @@ class Runner {
             this.player.ySpeed = 0;
         }
         if(this.player.xPos > this.mostRecent+10) {
-            this.mostRecent += this.rate;
+            this.mostRecent += this.rate + random(40);
             this.speed+=this.sizing/70;
             let he = this.ground.h * (random(2)+1);
             this.obstacles.push(new Obstacle(this.w,this.ground.y-he,this.player.w,he,this.speed));
