@@ -3,14 +3,15 @@ class Runner {
         this.player = {};
         this.ground = {};
         this.size(w,h);
-        this.rate = 50;
+
         this.highscore = 0;
     }
 
     reset() {
         this.obstacles = new Array();
         this.mostRecent = 0;
-        this.speed = this.sizing/7;
+        this.speed = this.maxSizing/7;
+        this.rate = 70-this.maxSizing/this.sizing/10;
         this.player.ySpeed = 0;
         this.player.xPos = 0;
         this.score = 0;
@@ -20,6 +21,7 @@ class Runner {
         this.w = w;
         this.h = h;
         this.sizing = floor(min(this.w/6,this.h/6));
+        this.maxSizing = floor(max(this.w/6,this.h/6));
         this.player.x = this.sizing/2
         this.player.w = this.sizing/2
         this.player.h = this.sizing
@@ -85,7 +87,7 @@ class Runner {
         }
         if(this.player.xPos > this.mostRecent+10) {
             this.mostRecent += this.rate + random(40);
-            this.speed+=this.sizing/70;
+            this.speed+=this.sizing/100;
             let he = this.ground.h * (random(2)+1);
             this.obstacles.push(new Obstacle(this.w,this.ground.y-he,this.player.w,he,this.speed));
         }
