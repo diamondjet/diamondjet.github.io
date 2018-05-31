@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class Runner {
     constructor(w,h) {
         this.player = {};
@@ -220,4 +219,3 @@ class Runner {
         }
     }
 }
->>>>>>> ab1f0835162995640e9ec8270008089befc79d0d
